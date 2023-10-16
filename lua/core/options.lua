@@ -16,6 +16,7 @@ opt.numberwidth = 4
 opt.number = true
 
 -- Completion
+-- noselect to force user to make a selection in cmp
 opt.completeopt = 'menuone,noselect'
 
 -- Just have a sign column ready
