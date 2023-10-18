@@ -11,13 +11,10 @@ opt.shiftwidth = 2
 opt.tabstop = 2
 opt.numberwidth = 4
 
-opt.listchars = { space = '.' }
+opt.listchars = { lead = '·' }
+opt.list = true
 -- line numbers
 opt.number = true
-
--- Completion
--- noselect to force user to make a selection in cmp
-opt.completeopt = 'menuone,noselect'
 
 -- Just have a sign column ready
 opt.signcolumn = 'yes'

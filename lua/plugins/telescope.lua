@@ -8,12 +8,12 @@ return {
   },
   config = function()
     local telescope = require("telescope")
-    
+
     telescope.load_extension("fzf")
     end,
   opts = {
     defaults = {
-      file_ignore_patterns = { 'node_modules' },
+      file_ignore_patterns = { 'node_modules', '%.js' },
     }
   },
 }

@@ -9,7 +9,6 @@ local maps = {
     [';'] = ':',
     ['<C-n>'] = '<cmd>NvimTreeToggle<cr>',
     ['<leader>ff'] = '<cmd>Telescope find_files<cr>',
-    ['<C-s>'] = '<cmd>SymbolsOutline<cr>',
     ['<leader>D'] = '<cmd>lua vim.lsp.buf.type_definition()<cr>',
     ['<leader>a'] = '<cmd>Telescope live_grep<cr>',
     ['<leader>b'] = '<cmd>Telescope buffers<cr>',
