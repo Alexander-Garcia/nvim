@@ -8,10 +8,10 @@ global.loaded_netrwPlugin = 1
 -- Spaces
 opt.expandtab = true
 opt.shiftwidth = 2
-opt.softtabstop = 2
 opt.tabstop = 2
 opt.numberwidth = 4
 
+opt.listchars = { space = '.' }
 -- line numbers
 opt.number = true
 
