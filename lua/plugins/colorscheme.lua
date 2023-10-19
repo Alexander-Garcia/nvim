@@ -7,6 +7,9 @@ return {
       local cat = require("catppuccin")
 
         cat.setup({
+          styles = {
+            keywords = { "italic"},
+          },
           highlight_overrides = { -- wow this took a minute... remove react props in TSX files from being defaulted to italic but keep that color. mauve.. its nice
             all = function()
               return {
