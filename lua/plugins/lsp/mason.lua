@@ -24,6 +24,7 @@ return {
         "vimls",
         "html",
         "cssls",
+        "terraformls",
         "tailwindcss",
       },
       automatic_installation = true,

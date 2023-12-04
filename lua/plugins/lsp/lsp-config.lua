@@ -11,15 +11,19 @@ return {
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
     lspconfig.pyright.setup({
-      capabilites = capabilities,
+      capabilities = capabilities,
     })
 
     lspconfig.tsserver.setup({
-      capabilites = capabilities,
+      capabilities = capabilities,
     })
 
     lspconfig.eslint.setup({
-      capabilites = capabilities,
+      capabilities = capabilities,
+    })
+
+    lspconfig.terraformls.setup({
+      capabilities = capabilities,
     })
 
     lspconfig["lua_ls"].setup({
