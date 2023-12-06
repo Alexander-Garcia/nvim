@@ -28,3 +28,6 @@ opt.incsearch = true
 -- Colors
 opt.termguicolors = true
 opt.background = 'dark'
+
+-- clipboard
+opt.clipboard = 'unnamed'
