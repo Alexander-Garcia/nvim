@@ -7,6 +7,7 @@ return {
     "L3MON4D3/LuaSnip", -- snippet engine
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
+    "zbirenbaum/copilot-cmp", -- copilot integration
   },
   config = function()
     local cmp = require("cmp")
@@ -42,6 +43,7 @@ return {
       -- sources for autocompletion
       sources = cmp.config.sources({
         { name = "nvim_lsp" }, -- show lsp stuff first
+        { name = "copilot" }, -- integrate copilot into cmp
         { name = "luasnip" }, -- snippets
         { name = "buffer" }, -- text within current buffer
         { name = "path" }, -- file system paths

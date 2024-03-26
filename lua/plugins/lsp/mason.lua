@@ -20,7 +20,6 @@ return {
     mason_lspconfig.setup({
       ensure_installed = {
         "pyright",
-        "phpactor",
         "tsserver",
         "vimls",
         "html",
