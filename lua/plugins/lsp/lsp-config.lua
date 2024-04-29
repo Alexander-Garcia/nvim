@@ -22,6 +22,10 @@ return {
       capabilities = capabilities,
     })
 
+    lspconfig.dockerls.setup({
+      capabilities = capabilities,
+    })
+
     lspconfig.terraformls.setup({
       capabilities = capabilities,
     })
