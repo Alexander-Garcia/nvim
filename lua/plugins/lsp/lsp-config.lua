@@ -26,6 +26,10 @@ return {
       capabilities = capabilities,
     })
 
+    lspconfig.yamlls.setup({
+      capabilities = capabilities,
+    })
+
     lspconfig.terraformls.setup({
       capabilities = capabilities,
     })
