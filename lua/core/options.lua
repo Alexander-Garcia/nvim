@@ -11,7 +11,7 @@ opt.shiftwidth = 2
 opt.tabstop = 2
 opt.numberwidth = 4
 
-opt.listchars = { lead = '·' }
+opt.listchars = { lead = '·', trail = '·'}
 opt.list = true
 -- line numbers
 opt.number = true
