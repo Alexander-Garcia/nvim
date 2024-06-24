@@ -10,30 +10,42 @@ return {
     local cmp_nvim_lsp = require("cmp_nvim_lsp")
     local capabilities = cmp_nvim_lsp.default_capabilities()
 
+    -- python
     lspconfig.pyright.setup({
       capabilities = capabilities,
     })
 
+    -- typescript
     lspconfig.tsserver.setup({
       capabilities = capabilities,
     })
 
+    -- lint
     lspconfig.eslint.setup({
       capabilities = capabilities,
     })
 
+    -- java
+    lspconfig.jdtls.setup({
+      capabilities = capabilities,
+    })
+
+    -- docker
     lspconfig.dockerls.setup({
       capabilities = capabilities,
     })
 
+    -- yaml
     lspconfig.yamlls.setup({
       capabilities = capabilities,
     })
 
+    -- terraform
     lspconfig.terraformls.setup({
       capabilities = capabilities,
     })
 
+    -- lua
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,
       settings = { -- custom settings for lua
