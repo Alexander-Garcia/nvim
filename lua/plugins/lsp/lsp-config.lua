@@ -45,6 +45,11 @@ return {
       capabilities = capabilities,
     })
 
+    -- latex
+    lspconfig.ltex.setup({
+      capabilities = capabilities,
+    })
+
     -- lua
     lspconfig["lua_ls"].setup({
       capabilities = capabilities,

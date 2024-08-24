@@ -26,6 +26,7 @@ return {
         "cssls",
         "terraformls",
         "tailwindcss",
+        "ltex",
       },
       automatic_installation = true,
     })
