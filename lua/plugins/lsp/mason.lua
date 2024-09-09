@@ -20,7 +20,7 @@ return {
     mason_lspconfig.setup({
       ensure_installed = {
         "pyright",
-        "tsserver",
+        "ts_ls",
         "vimls",
         "html",
         "cssls",
