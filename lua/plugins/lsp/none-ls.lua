@@ -1,3 +1,4 @@
+-- TODO: handle conflic of LSP / formatters i.e., lua_ls provides formatting as well as stylua. Choose null_ls
 return {
   "nvimtools/none-ls.nvim",
   config = function()
@@ -14,7 +15,12 @@ return {
     })
 
     vim.keymap.set("n", "<leader>fo", function()
-      vim.lsp.buf.format({ timeout_ms = 2000 })
+      vim.lsp.buf.format({
+        timeout_ms = 2000,
+        filter = function(client)
+          return client.name == "null-ls"
+        end,
+      })
     end, {})
   end,
 }

@@ -11,13 +11,14 @@ opt.shiftwidth = 2
 opt.tabstop = 2
 opt.numberwidth = 4
 
-opt.listchars = { lead = '·', trail = '·'}
+-- for detailed spacing
+opt.listchars = { lead = "·", trail = "·" }
 opt.list = true
 -- line numbers
 opt.number = true
 
 -- Just have a sign column ready
-opt.signcolumn = 'yes'
+opt.signcolumn = "yes"
 
 -- Searching
 opt.ignorecase = true
@@ -27,7 +28,7 @@ opt.incsearch = true
 
 -- Colors
 opt.termguicolors = true
-opt.background = 'dark'
+opt.background = "dark"
 
 -- clipboard
-opt.clipboard = 'unnamed'
+opt.clipboard = "unnamed"

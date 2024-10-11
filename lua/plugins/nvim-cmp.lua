@@ -2,12 +2,12 @@ return {
   "hrsh7th/nvim-cmp",
   event = "InsertEnter",
   dependencies = {
-    "hrsh7th/cmp-buffer", -- source for text in buffer
-    "hrsh7th/cmp-path", -- source for file system paths
-    "L3MON4D3/LuaSnip", -- snippet engine
-    "saadparwaiz1/cmp_luasnip", -- for autocompletion
+    "hrsh7th/cmp-buffer",         -- source for text in buffer
+    "hrsh7th/cmp-path",           -- source for file system paths
+    "L3MON4D3/LuaSnip",           -- snippet engine
+    "saadparwaiz1/cmp_luasnip",   -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
-    "zbirenbaum/copilot-cmp", -- copilot integration
+    "zbirenbaum/copilot-cmp",     -- copilot integration
   },
   config = function()
     local cmp = require("cmp")
@@ -15,13 +15,16 @@ return {
 
     cmp.setup({
       enabled = function()
-           -- Don't enable autocomplete inside of comments
-          if require'cmp.config.context'.in_treesitter_capture('comment')==true or require'cmp.config.context'.in_syntax_group('Comment') then
-            return false
-          else
-            return true
-          end
-        end,
+        -- Don't enable autocomplete inside of comments
+        if
+            require("cmp.config.context").in_treesitter_capture("comment") == true
+            or require("cmp.config.context").in_syntax_group("Comment")
+        then
+          return false
+        else
+          return true
+        end
+      end,
       completion = {
         completeopt = "menu,menuone,preview,noselect",
       },
@@ -37,7 +40,7 @@ return {
         ["<C-b>"] = cmp.mapping.scroll_docs(-4),
         ["<C-f>"] = cmp.mapping.scroll_docs(4),
         ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
-        ["<C-e>"] = cmp.mapping.abort(), -- close completion window
+        ["<C-e>"] = cmp.mapping.abort(),    -- close completion window
         ["<CR>"] = cmp.mapping.confirm({ select = false }),
       }),
       -- sources for autocompletion

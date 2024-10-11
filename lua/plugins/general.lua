@@ -1,6 +1,6 @@
 -- this file is for general plugins with no extra setup
 return {
-   -- Git
+  -- Git
   "tpope/vim-fugitive",
   "airblade/vim-gitgutter",
   "AndreM222/copilot-lualine",

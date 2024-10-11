@@ -10,10 +10,10 @@ return {
     local telescope = require("telescope")
 
     telescope.load_extension("fzf")
-    end,
+  end,
   opts = {
     defaults = {
-      file_ignore_patterns = { 'node_modules', '%.js' },
-    }
+      file_ignore_patterns = { "node_modules", "%.js" },
+    },
   },
 }
