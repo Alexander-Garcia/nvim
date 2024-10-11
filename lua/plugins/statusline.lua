@@ -5,12 +5,12 @@ return {
     local lualine = require("lualine")
     local lazy_status = require("lazy.status")
 
-    -- stolen shamelessly from evil lualine 
+    -- stolen shamelessly from evil lualine
     local lsp_server_name = {
       function()
-        local msg = 'No Active Lsp'
-        local buf_ft = vim.api.nvim_buf_get_option(0, 'filetype')
-        local clients = vim.lsp.get_active_clients()
+        local msg = "No Active Lsp"
+        local buf_ft = vim.bo.filetype
+        local clients = vim.lsp.get_clients()
         if next(clients) == nil then
           return msg
         end
@@ -22,8 +22,8 @@ return {
         end
         return msg
       end,
-      icon = '  LSP:',
-      color = { fg = '#c678dd', gui = 'bold' },
+      icon = "  LSP:",
+      color = { fg = "#c678dd", gui = "bold" },
       padding = 2,
     }
 
@@ -34,7 +34,7 @@ return {
       sections = {
         lualine_x = {
           {
-            'copilot',
+            "copilot",
             show_colors = true,
           },
           {
@@ -46,7 +46,7 @@ return {
           lsp_server_name,
           { "encoding" },
           { "fileformat" },
-          { "filetype", padding = 1 },
+          { "filetype",  padding = 1 },
         },
       },
     })
