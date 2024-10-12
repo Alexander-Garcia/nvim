@@ -12,6 +12,7 @@ return {
     telescope.load_extension("fzf")
   end,
   opts = {
+    -- just install ripgrep so telescope will automatically use it and ignore .gitignore dirs
     defaults = {
       file_ignore_patterns = { "node_modules", "%.js" },
     },
