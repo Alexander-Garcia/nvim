@@ -16,8 +16,7 @@ return {
         end
         for _, client in ipairs(clients) do
           local filetypes = client.config.filetypes
-          -- TODO: adjust so null-ls doesn't show up as the LSP
-          if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 and client.name ~= "null-ls" then
+          if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
             return client.name
           end
         end
@@ -47,7 +46,7 @@ return {
           lsp_server_name,
           { "encoding" },
           { "fileformat" },
-          { "filetype",  padding = 1 },
+          { "filetype", padding = 1 },
         },
       },
     })
