@@ -27,6 +27,18 @@ return {
       padding = 2,
     }
 
+    local lint_progress = {
+      function()
+        local linters = require("lint").get_running()
+        if #linters == 0 then
+          return "󰦕"
+        end
+        return "󱉶 " .. table.concat(linters, ", ")
+      end,
+      color = { fg = "#2EF7DB", gui = "bold" },
+      padding = 2,
+    }
+
     lualine.setup({
       options = {
         theme = "catppuccin",
@@ -43,6 +55,7 @@ return {
             color = { fg = "#ff9e64" },
             padding = 1,
           },
+          lint_progress,
           lsp_server_name,
           { "encoding" },
           { "fileformat" },
