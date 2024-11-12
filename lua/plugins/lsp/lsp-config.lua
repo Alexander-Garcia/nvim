@@ -112,6 +112,21 @@ return {
           filetypes = { "tex" },
         })
       end,
+      ["yamlls"] = function()
+        lspconfig["yamlls"].setup({
+          capabilities = capabilities,
+          settings = {
+            yaml = {
+              format = {
+                enable = false,
+              },
+              schemas = {
+                ["https://raw.githubusercontent.com/compose-spec/compose-spec/master/schema/compose-spec.json"] = "/*.{yml,yaml}",
+              },
+            },
+          },
+        })
+      end,
       ["graphql"] = function()
         -- configure graphql language server
         lspconfig["graphql"].setup({
