@@ -3,6 +3,8 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local lint = require("lint")
+    require("lint").linters.pylint.cmd = "python"
+    require("lint").linters.pylint.args = { "-m", "pylint", "-f", "json" }
 
     lint.linters_by_ft = {
       javascript = { "eslint_d" },
