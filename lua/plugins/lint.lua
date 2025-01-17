@@ -19,6 +19,7 @@ return {
     vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
       group = lint_augroup,
       callback = function()
+        -- use for debug: print("Linting triggered by autocmd for file: " .. vim.fn.expand("%"))
         lint.try_lint()
       end,
     })
