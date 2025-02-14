@@ -32,3 +32,6 @@ opt.background = "dark"
 
 -- clipboard
 opt.clipboard = "unnamed"
+
+-- avante
+opt.laststatus = 3
