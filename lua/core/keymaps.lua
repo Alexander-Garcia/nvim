@@ -1,4 +1,4 @@
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 
 local maps = {
   i = {
@@ -8,9 +8,6 @@ local maps = {
     [":"] = ";",
     [";"] = ":",
     ["<C-n>"] = "<cmd>NvimTreeToggle<cr>",
-    ["<leader>ff"] = "<cmd>Telescope find_files<cr>",
-    ["<leader>gr"] = "<cmd>Telescope live_grep<cr>",
-    ["<leader>b"] = "<cmd>Telescope buffers<cr>",
     ["<leader>e"] = "<cmd>TroubleToggle workspace_diagnostics<cr>",
     -- Uppercase Y will grab entire line
     ["Y"] = "yy",

@@ -17,7 +17,7 @@ opt.list = true
 -- line numbers
 opt.number = true
 
--- Just have a sign column ready
+-- nice
 opt.signcolumn = "yes"
 
 -- Searching
