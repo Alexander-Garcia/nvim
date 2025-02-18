@@ -135,6 +135,12 @@ return {
           filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
         })
       end,
+      ["prismals"] = function()
+        lspconfig["prismals"].setup({
+          capabilities = capabilities,
+          filetypes = { "prisma" },
+        })
+      end,
       -- lua
       ["lua_ls"] = function()
         -- configure lua server (with special settings)
