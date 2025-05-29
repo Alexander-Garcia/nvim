@@ -6,7 +6,7 @@ return {
   opts = {
     -- add any opts here
     -- for example
-    provider = "claude",
+    provider = "openai",
     windows = {
       width = 40,
     },
