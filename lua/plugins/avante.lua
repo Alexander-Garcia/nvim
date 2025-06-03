@@ -3,15 +3,16 @@ return {
   event = "VeryLazy",
   version = false, -- Never set to "*"
   opts = {
-    -- add any opts here
-    -- for example
     mode = "legacy",
-    provider = "openai",
-    openai = {
-      endpoint = "https://api.openai.com/v1",
-      timeout = 30000,
-      temperature = 0,
-      max_completion_tokens = 8192,
+    providers = {
+      openai = {
+        endpoint = "https://api.openai.com/v1",
+        timeout = 30000,
+        extra_request_body = {
+          temperature = 0,
+          max_completion_tokens = 8192,
+        },
+      },
     },
     windows = {
       width = 40,
