@@ -13,9 +13,9 @@ return {
     telescope.load_extension("fzf")
     -- for integration with todo-comments
     vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
-    vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Search files"})
-    vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Grep search"})
-    vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<cr>", { desc = "Buffers"})
+    vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Search files" })
+    vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Grep search" })
+    vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
 
     -- Clone the default Telescope configuration
     local vimgrep_arguments = { unpack(telescopeConfig.values.vimgrep_arguments) }
@@ -31,6 +31,8 @@ return {
     table.insert(vimgrep_arguments, "!**/node_modules/*")
     table.insert(vimgrep_arguments, "-g")
     table.insert(vimgrep_arguments, "!**/.git/*")
+    table.insert(vimgrep_arguments, "-g")
+    table.insert(vimgrep_arguments, "!**/.nx/cache/*")
 
     telescope.setup({
       defaults = {
@@ -44,12 +46,20 @@ return {
             "--files",
             "--hidden",
             "--no-ignore-vcs",
-            "-g", "!**/node_modules/*",
-            "-g", "!**/.git/*",
-            "-g", "!package-lock.json",
-            "-g", "!yarn.lock",
-            "-g", "!pnpm-lock.yaml",
-            "-g", "!lazy-lock.json",
+            "-g",
+            "!**/node_modules/*",
+            "-g",
+            "!**/.git/*",
+            "-g",
+            "!package-lock.json",
+            "-g",
+            "!yarn.lock",
+            "-g",
+            "!pnpm-lock.yaml",
+            "-g",
+            "!lazy-lock.json",
+            "-g",
+            "!**/.nx/cache/*",
           },
         },
       },
