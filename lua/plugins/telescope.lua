@@ -32,7 +32,7 @@ return {
     table.insert(vimgrep_arguments, "-g")
     table.insert(vimgrep_arguments, "!**/.git/*")
     table.insert(vimgrep_arguments, "-g")
-    table.insert(vimgrep_arguments, "!**/.nx/cache/*")
+    table.insert(vimgrep_arguments, "!**/.nx/*")
 
     telescope.setup({
       defaults = {
