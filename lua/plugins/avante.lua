@@ -6,6 +6,7 @@ return {
     mode = "legacy",
     providers = {
       openai = {
+        model = "gpt-4o",
         endpoint = "https://api.openai.com/v1",
         timeout = 30000,
         extra_request_body = {
@@ -16,6 +17,9 @@ return {
     },
     windows = {
       width = 40,
+      input = {
+        height = 10,
+      },
     },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
