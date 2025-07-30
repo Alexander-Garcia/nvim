@@ -26,7 +26,6 @@ return {
         "html",
         "cssls",
         "terraformls",
-        "tailwindcss",
         "ltex",
       },
     })

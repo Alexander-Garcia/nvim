@@ -3,7 +3,6 @@ require("lazy-init")
 
 vim.lsp.enable({
   "svelte",
-  "tailwindcss",
   "ltex",
   "yamlls",
   "graphql",
