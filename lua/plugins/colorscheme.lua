@@ -7,13 +7,16 @@ return {
     local cat = require("catppuccin")
 
     cat.setup({
+      flavor = "macchiato",
       styles = {
         keywords = { "italic" },
       },
-      highlight_overrides = { -- wow this took a minute... remove react props in TSX files from being defaulted to italic but keep that color. mauve.. its nice
+      highlight_overrides = {
         all = function()
           return {
-            ["@tag.attribute.tsx"] = { fg = "#cba6f7", style = {} },
+            ["@tag.attribute.tsx"] = { fg = "#eed49f", style = {} },
+            ["@variable.member.tsx"] = { fg = "#cad3f5" },
+            ["@variable.member.typescript"] = { fg = "#cad3f5" },
           }
         end,
       },
@@ -24,7 +27,6 @@ return {
         },
       },
     })
-    -- load the colorscheme here
     vim.cmd([[colorscheme catppuccin]])
   end,
 }
