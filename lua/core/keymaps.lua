@@ -1,4 +1,4 @@
-vim.g.mapleader = ","
+vim.g.mapleader = " "
 
 local maps = {
   i = {
@@ -7,9 +7,6 @@ local maps = {
   n = {
     [":"] = ";",
     [";"] = ":",
-    ["<C-n>"] = "<cmd>NvimTreeToggle<cr>",
-    ["<leader>e"] = "<cmd>TroubleToggle workspace_diagnostics<cr>",
-    ["<leader>cc"] = "<cmd>CodeCompanionChat<cr>",
     -- Uppercase Y will grab entire line
     ["Y"] = "yy",
     -- Natural movement over visual lines

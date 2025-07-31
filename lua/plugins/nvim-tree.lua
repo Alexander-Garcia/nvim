@@ -26,4 +26,12 @@ return {
       },
     })
   end,
+  keys = {
+    {
+      "<C-n>",
+      "<cmd>NvimTreeToggle<CR>",
+      desc = "Toggle NvimTree",
+      mode = { "n" },
+    },
+  },
 }
