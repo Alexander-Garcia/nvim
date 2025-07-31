@@ -21,6 +21,7 @@ return {
             ["@lsp.type.property.typescriptreact"] = { fg = "#cad3f5" },
             ["@lsp.type.property.typescript"] = { fg = "#cad3f5" },
             ["@punctuation.delimiter.tsx"] = { fg = "#8bd5ca" },
+            ["@punctuation.delimiter.typescript"] = { fg = "#8bd5ca" },
           }
         end,
       },
