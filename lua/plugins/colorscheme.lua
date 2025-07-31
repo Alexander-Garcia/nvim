@@ -17,6 +17,10 @@ return {
             ["@tag.attribute.tsx"] = { fg = "#eed49f", style = {} },
             ["@variable.member.tsx"] = { fg = "#cad3f5" },
             ["@variable.member.typescript"] = { fg = "#cad3f5" },
+            ["@lsp.type.parameter.typescriptreact"] = { fg = "#cad3f5" },
+            ["@lsp.type.property.typescriptreact"] = { fg = "#cad3f5" },
+            ["@lsp.type.property.typescript"] = { fg = "#cad3f5" },
+            ["@punctuation.delimiter.tsx"] = { fg = "#8bd5ca" },
           }
         end,
       },
