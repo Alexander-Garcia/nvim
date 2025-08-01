@@ -17,7 +17,7 @@ return {
     },
     display = {
       chat = {
-        auto_scroll = false,
+        auto_scroll = true,
         window = {
           position = "right",
         },
