@@ -4,12 +4,12 @@ return {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
     "j-hui/fidget.nvim",
+    "ravitemer/mcphub.nvim",
   },
   opts = {
     strategies = {
       chat = {
         adapter = "openai",
-        model = "gpt-4o",
       },
       inline = {
         adapter = "copilot",
@@ -20,6 +20,16 @@ return {
         auto_scroll = true,
         window = {
           position = "right",
+        },
+      },
+    },
+    extensions = {
+      mcphub = {
+        callback = "mcphub.extensions.codecompanion",
+        opts = {
+          make_vars = true,
+          make_slash_commands = true,
+          show_result_in_chat = true,
         },
       },
     },
