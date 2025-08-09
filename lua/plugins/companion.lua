@@ -9,7 +9,7 @@ return {
   opts = {
     strategies = {
       chat = {
-        adapter = "openai",
+        adapter = "anthropic",
       },
       inline = {
         adapter = "copilot",
