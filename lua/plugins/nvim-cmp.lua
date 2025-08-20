@@ -9,10 +9,13 @@ return {
     "saadparwaiz1/cmp_luasnip", -- for autocompletion
     "rafamadriz/friendly-snippets", -- useful snippets
     "zbirenbaum/copilot-cmp", -- copilot integration
+    "onsails/lspkind.nvim", -- vs-code like pictograms
   },
   config = function()
     local cmp = require("cmp")
     local luasnip = require("luasnip")
+    local lspkind = require("lspkind")
+
     local mapTable = {
       ["<C-k>"] = cmp.mapping.select_prev_item(), -- previous suggestion
       ["<C-j>"] = cmp.mapping.select_next_item(), -- next suggestion
@@ -41,6 +44,24 @@ return {
       snippet = { -- configure how nvim-cmp interacts with snippet engine
         expand = function(args)
           luasnip.lsp_expand(args.body)
+        end,
+      },
+
+      formatting = {
+        format = function(entry, vim_item)
+          local kind = lspkind.cmp_format({
+            mode = "symbol_text",
+            maxWidth = {
+              menu = 50,
+              abbr = 50,
+            },
+            ellipsis_char = "...",
+            show_labelDetails = true,
+          })(entry, vim_item)
+
+          -- Add padding to the kind field
+          kind.kind = " " .. kind.kind .. " "
+          return kind
         end,
       },
 
