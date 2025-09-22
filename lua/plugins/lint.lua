@@ -6,6 +6,21 @@ return {
     require("lint").linters.pylint.cmd = "python"
     require("lint").linters.pylint.args = { "-m", "pylint", "-f", "json" }
 
+    -- Helper to find nearest git root
+    local function get_git_root()
+      local git_root = vim.fn.systemlist("git rev-parse --show-toplevel")[1]
+      if vim.v.shell_error == 0 then
+        return git_root
+      end
+      return vim.fn.getcwd() -- fallback
+    end
+
+    -- Patch eslint_d to use git root as cwd
+    local eslint_d = lint.linters.eslint_d
+    eslint_d.cwd = function(_)
+      return get_git_root()
+    end
+
     lint.linters_by_ft = {
       javascript = { "eslint_d" },
       typescript = { "eslint_d" },
