@@ -9,6 +9,7 @@ return {
     explorer = { enabled = false },
     indent = { enabled = true },
     input = { enabled = true },
+    lazygit = { enabled = true },
     picker = { enabled = false },
     notifier = { enabled = false },
     quickfile = { enabled = false },
@@ -24,6 +25,13 @@ return {
         Snacks.picker.help()
       end,
       desc = "Help Pages",
+    },
+    {
+      "<leader>gg",
+      function()
+        Snacks.lazygit()
+      end,
+      desc = "Lazygit",
     },
   },
 }
