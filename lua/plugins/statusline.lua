@@ -46,6 +46,9 @@ return {
         theme = "catppuccin",
       },
       sections = {
+        lualine_c = {
+          { "filename", file_status = true, path = 1, shorting_target = 40 },
+        },
         lualine_x = {
           {
             "copilot",
