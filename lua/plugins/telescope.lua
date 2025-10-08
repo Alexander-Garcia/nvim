@@ -14,6 +14,7 @@ return {
     -- for integration with todo-comments
     vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
     vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Search files" })
+    vim.keymap.set("n", "<leader>fs", "<cmd>Telescope git_status<cr>", { desc = "Git modified files" })
     vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Grep search" })
     vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
 
