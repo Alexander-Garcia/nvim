@@ -27,7 +27,7 @@ return {
       desc = "Help Pages",
     },
     {
-      "<leader>gg",
+      "<leader>lg",
       function()
         Snacks.lazygit()
       end,

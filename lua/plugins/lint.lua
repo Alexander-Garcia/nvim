@@ -35,7 +35,7 @@ return {
       end
     end, {})
 
-    vim.keymap.set("n", "<leader>l", function()
+    vim.keymap.set("n", "<leader>ll", function()
       lint.try_lint()
     end, { desc = "Lint" })
   end,

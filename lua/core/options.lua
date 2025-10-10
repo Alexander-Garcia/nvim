@@ -16,6 +16,8 @@ opt.listchars = { lead = "·", trail = "·" }
 opt.list = true
 -- line numbers
 opt.number = true
+-- realtive line numbers
+vim.wo.relativenumber = true
 
 -- nice
 opt.signcolumn = "yes"
