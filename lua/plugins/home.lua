@@ -35,7 +35,7 @@ return {
 
     dashboard.section.buttons.val = {
       dashboard.button("e", "📄  New file", ":ene <BAR> startinsert <CR>"),
-      dashboard.button("SPC ff", "🔍  Find file", ":Telescope find_files <CR>"),
+      dashboard.button("f", "🔍  Find file", ":Telescope find_files <CR>"),
       dashboard.button("l", "📦  Lazy Plugin Manager", ":Lazy<CR>"),
       dashboard.button("m", "🧱  Mason Package Manager", ":Mason<CR>"),
       dashboard.button("q", "🚪  Quit Neovim", ":qa<CR>"),
