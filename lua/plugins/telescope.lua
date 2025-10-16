@@ -16,6 +16,9 @@ return {
     vim.keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Search files" })
     vim.keymap.set("n", "<leader>fs", "<cmd>Telescope git_status<cr>", { desc = "Git modified files" })
     vim.keymap.set("n", "<leader>fg", "<cmd>Telescope live_grep<cr>", { desc = "Grep search" })
+    vim.keymap.set("n", "<leader>fw", function()
+      require("telescope.builtin").grep_string({ search = vim.fn.expand("<cword>") })
+    end, { desc = "Search word under cursor across files" })
     vim.keymap.set("n", "<leader>b", "<cmd>Telescope buffers<cr>", { desc = "Buffers" })
 
     -- Clone the default Telescope configuration
