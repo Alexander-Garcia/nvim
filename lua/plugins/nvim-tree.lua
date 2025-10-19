@@ -28,7 +28,7 @@ return {
   end,
   keys = {
     {
-      "<C-n>",
+      "<leader>n",
       "<cmd>NvimTreeToggle<CR>",
       desc = "Toggle NvimTree",
       mode = { "n" },

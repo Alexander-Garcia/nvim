@@ -10,7 +10,7 @@ return {
     indent = { enabled = true },
     input = { enabled = true },
     lazygit = { enabled = true },
-    picker = { enabled = false },
+    picker = { enabled = true },
     notifier = { enabled = false },
     quickfile = { enabled = false },
     scope = { enabled = false },
@@ -19,13 +19,6 @@ return {
     words = { enabled = false },
   },
   keys = {
-    {
-      "<leader>sh",
-      function()
-        Snacks.picker.help()
-      end,
-      desc = "Help Pages",
-    },
     {
       "<leader>lg",
       function()

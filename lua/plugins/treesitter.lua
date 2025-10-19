@@ -8,7 +8,7 @@ return {
     configs.setup({
       auto_install = true,
       ensure_installed = "all",
-      ignore_install = {},
+      ignore_install = { "ipkg" },
       highlight = { enable = true },
       indent = { enable = true },
     })
