@@ -2,10 +2,6 @@ return {
   "folke/snacks.nvim",
   opts = {
     picker = {
-      grep = {
-        hidden = true,
-        ignored = true,
-      },
       sources = {
         files = {
           pattern = "!node_modules ",
@@ -13,6 +9,8 @@ return {
           ignored = true,
         },
         grep = {
+          hidden = true,
+          ignored = false,
           args = {
             "--glob",
             "!*-lock.json",
