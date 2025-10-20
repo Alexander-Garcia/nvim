@@ -33,7 +33,7 @@ opt.termguicolors = true
 opt.background = "dark"
 
 -- clipboard
-opt.clipboard = "unnamed"
+opt.clipboard = "unnamedplus"
 
 -- avante
 opt.laststatus = 3
