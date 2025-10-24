@@ -5,7 +5,7 @@ return {
     picker = {
       sources = {
         files = {
-          pattern = "!node_modules ",
+          pattern = "!node_modules !dist ",
           hidden = true,
           ignored = true,
         },
