@@ -1,13 +1,33 @@
 ---@type vim.lsp.Config
 return {
-  cmd = { "tsgo", "--lsp", "--stdio" },
+  settings = {
+    typescript = {
+      inlayHints = {
+        parameterNames = {
+          enabled = "literals",
+          suppressWhenArgumentMatchesName = true,
+        },
+        parameterTypes = { enabled = true },
+        variableTypes = { enabled = true },
+        propertyDeclarationTypes = { enabled = true },
+        functionLikeReturnTypes = { enabled = true },
+        enumMemberValues = { enabled = true },
+      },
+    },
+  },
+  cmd = function(dispatchers, config)
+    local cmd = "tsgo"
+    local local_cmd = (config or {}).root_dir and config.root_dir .. "/node_modules/.bin/tsgo"
+    if local_cmd and vim.fn.executable(local_cmd) == 1 then
+      cmd = local_cmd
+    end
+    return vim.lsp.rpc.start({ cmd, "--lsp", "--stdio" }, dispatchers)
+  end,
   filetypes = {
     "javascript",
     "javascriptreact",
-    "javascript.jsx",
     "typescript",
     "typescriptreact",
-    "typescript.tsx",
   },
   root_dir = function(bufnr, on_dir)
     -- The project root is where the LSP can be started from
@@ -18,9 +38,20 @@ return {
     -- Give the root markers equal priority by wrapping them in a table
     root_markers = vim.fn.has("nvim-0.11.3") == 1 and { root_markers, { ".git" } }
       or vim.list_extend(root_markers, { ".git" })
-    -- We fallback to the current working directory if no project root is found
-    local project_root = vim.fs.root(bufnr, root_markers) or vim.fn.getcwd()
 
-    on_dir(project_root)
+    local deno_root = vim.fs.root(bufnr, { "deno.json", "deno.jsonc" })
+    local deno_lock_root = vim.fs.root(bufnr, { "deno.lock" })
+    local project_root = vim.fs.root(bufnr, root_markers)
+    if deno_lock_root and (not project_root or #deno_lock_root > #project_root) then
+      -- deno lock is closer than package manager lock, abort
+      return
+    end
+    if deno_root and (not project_root or #deno_root >= #project_root) then
+      -- deno config is closer than or equal to package manager lock, abort
+      return
+    end
+    -- project is standard TS, not deno
+    -- We fallback to the current working directory if no project root is found
+    on_dir(project_root or vim.fn.getcwd())
   end,
 }

@@ -9,4 +9,6 @@ vim.lsp.enable({
   "pyright",
   "dockerls",
   "cssls",
+  "vtsls",
+  "vue_ls",
 })

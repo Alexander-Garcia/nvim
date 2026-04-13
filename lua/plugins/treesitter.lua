@@ -1,16 +1,17 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  event = { "BufNewFile", "BufReadPre" },
+  lazy = false,
   build = ":TSUpdate",
   config = function()
-    local configs = require("nvim-treesitter.configs")
+    -- New nvim-treesitter v1.0 API: setup only accepts install_dir
+    require("nvim-treesitter").setup()
 
-    configs.setup({
-      auto_install = true,
-      ensure_installed = "all",
-      ignore_install = { "ipkg" },
-      highlight = { enable = true },
-      indent = { enable = true },
+    -- Enable highlighting and indentation for all filetypes via autocmd
+    vim.api.nvim_create_autocmd("FileType", {
+      callback = function()
+        pcall(vim.treesitter.start)
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end,
     })
   end,
 }
