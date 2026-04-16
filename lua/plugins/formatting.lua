@@ -14,14 +14,18 @@ return {
       formatters_by_ft = {
         yaml = { "prettier" },
         javascript = { "prettier" },
-        typescript = { "prettier" },
+        typescript = function(bufnr)
+          return has_biome_config(bufnr) and { "biome" } or { "prettier " }
+        end,
         javascriptreact = { "prettier" },
         typescriptreact = { "prettier" },
         vue = function(bufnr)
           return has_biome_config(bufnr) and { "biome" } or { "prettier " }
         end,
         css = { "prettier" },
-        json = { "prettier" },
+        json = function(bufnr)
+          return has_biome_config(bufnr) and { "biome" } or { "prettier " }
+        end,
         lua = { "stylua" },
         python = { "isort", "black" },
       },
