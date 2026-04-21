@@ -3,15 +3,8 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     local conform = require("conform")
-    local function has_biome_config(bufnr)
-      return vim.fs.find({ "biome.json", "biome.jsonc" }, {
-        upward = true,
-        path = vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr)),
-      })[1] ~= nil
-    end
-    local function get_formatter(bufnr)
-      return has_biome_config(bufnr) and { "biome" } or { "prettier" }
-    end
+    local project = require("core.project")
+    local get_formatter = project.get_formatter
 
     conform.setup({
       formatters_by_ft = {

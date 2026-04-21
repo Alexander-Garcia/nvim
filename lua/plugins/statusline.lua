@@ -29,8 +29,7 @@ return {
 
     local lint_progress = {
       function()
-        local filetype = vim.bo.filetype
-        local linters = require("lint").linters_by_ft[filetype]
+        local linters = require("core.project").get_linters()
         if linters ~= nil then
           return "󰦕 " .. table.concat(linters, ", ")
         else
