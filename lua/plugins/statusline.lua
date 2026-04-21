@@ -63,7 +63,6 @@ return {
           lint_progress,
           lsp_server_name,
           { "encoding" },
-          { "fileformat" },
           { "filetype", padding = 1 },
         },
       },

@@ -9,23 +9,20 @@ return {
         path = vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr)),
       })[1] ~= nil
     end
+    local function get_formatter(bufnr)
+      return has_biome_config(bufnr) and { "biome" } or { "prettier" }
+    end
 
     conform.setup({
       formatters_by_ft = {
         yaml = { "prettier" },
         javascript = { "prettier" },
-        typescript = function(bufnr)
-          return has_biome_config(bufnr) and { "biome" } or { "prettier " }
-        end,
-        javascriptreact = { "prettier" },
-        typescriptreact = { "prettier" },
-        vue = function(bufnr)
-          return has_biome_config(bufnr) and { "biome" } or { "prettier " }
-        end,
+        typescript = get_formatter,
+        javascriptreact = get_formatter,
+        typescriptreact = get_formatter,
+        vue = get_formatter,
         css = { "prettier" },
-        json = function(bufnr)
-          return has_biome_config(bufnr) and { "biome" } or { "prettier " }
-        end,
+        json = get_formatter,
         lua = { "stylua" },
         python = { "isort", "black" },
       },
