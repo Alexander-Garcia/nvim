@@ -21,36 +21,11 @@ return {
     },
   },
   keys = {
-    -- Top Pickers & Explorer
-    {
-      "<leader>b",
-      function()
-        Snacks.picker.buffers()
-      end,
-      desc = "Buffers",
-    },
-    {
-      "<leader>fg",
-      function()
-        Snacks.picker.grep()
-      end,
-      desc = "Grep",
-    },
-    {
-      "<leader>:",
-      function()
-        Snacks.picker.command_history()
-      end,
-      desc = "Command History",
-    },
-    {
-      "<leader>fn",
-      function()
-        Snacks.picker.notifications()
-      end,
-      desc = "Notification History",
-    },
-    -- find
+    -- ============================================================
+    -- Find (<leader>f) — pickers that locate a thing
+    -- ============================================================
+
+    -- find files by name in the project
     {
       "<leader>ff",
       function()
@@ -58,7 +33,164 @@ return {
       end,
       desc = "Find Files",
     },
-    -- git
+    -- grep across the project (live ripgrep)
+    {
+      "<leader>fg",
+      function()
+        Snacks.picker.grep()
+      end,
+      desc = "Grep",
+    },
+    -- grep the word under cursor (normal) or visual selection (visual)
+    {
+      "<leader>fw",
+      function()
+        Snacks.picker.grep_word()
+      end,
+      desc = "Grep word/selection",
+      mode = { "n", "x" },
+    },
+    -- open buffers (files currently loaded in this nvim session)
+    {
+      "<leader>fb",
+      function()
+        Snacks.picker.buffers()
+      end,
+      desc = "Buffers",
+    },
+    -- recently opened files (across sessions, from shada/oldfiles)
+    {
+      "<leader>fr",
+      function()
+        Snacks.picker.recent()
+      end,
+      desc = "Recent Files",
+    },
+    -- git-changed files in working tree (was <leader>gs)
+    {
+      "<leader>fc",
+      function()
+        Snacks.picker.git_status()
+      end,
+      desc = "Git Changed Files",
+    },
+    -- fuzzy-find a line in the current buffer
+    {
+      "<leader>fl",
+      function()
+        Snacks.picker.lines()
+      end,
+      desc = "Buffer Lines",
+    },
+    -- grep across all currently-open buffers
+    {
+      "<leader>fL",
+      function()
+        Snacks.picker.grep_buffers()
+      end,
+      desc = "Grep Open Buffers",
+    },
+    -- LSP symbols in the current file (functions, classes, etc.)
+    {
+      "<leader>fs",
+      function()
+        Snacks.picker.lsp_symbols()
+      end,
+      desc = "LSP Symbols",
+    },
+    -- LSP symbols across the whole workspace
+    {
+      "<leader>fS",
+      function()
+        Snacks.picker.lsp_workspace_symbols()
+      end,
+      desc = "LSP Workspace Symbols",
+    },
+    -- list all keymaps (built-in and your own)
+    {
+      "<leader>fk",
+      function()
+        Snacks.picker.keymaps()
+      end,
+      desc = "Keymaps",
+    },
+    -- search nvim's :help docs
+    {
+      "<leader>fh",
+      function()
+        Snacks.picker.help()
+      end,
+      desc = "Help Pages",
+    },
+    -- jump to a saved mark (positions you've bookmarked with mX)
+    {
+      "<leader>fm",
+      function()
+        Snacks.picker.marks()
+      end,
+      desc = "Marks",
+    },
+    -- the jumplist: every cursor jump you've made (Ctrl-o / Ctrl-i history)
+    {
+      "<leader>fj",
+      function()
+        Snacks.picker.jumps()
+      end,
+      desc = "Jumps",
+    },
+    -- all diagnostics (LSP errors/warnings) in the workspace
+    {
+      "<leader>fd",
+      function()
+        Snacks.picker.diagnostics()
+      end,
+      desc = "Diagnostics",
+    },
+    -- diagnostics for just the current buffer
+    {
+      "<leader>fD",
+      function()
+        Snacks.picker.diagnostics_buffer()
+      end,
+      desc = "Buffer Diagnostics",
+    },
+    -- browse the quickfix list (a list of locations gathered from grep/LSP/etc.)
+    {
+      "<leader>fq",
+      function()
+        Snacks.picker.qflist()
+      end,
+      desc = "Quickfix List",
+    },
+    -- undo history as a picker (preview + restore any past state)
+    {
+      "<leader>fu",
+      function()
+        Snacks.picker.undo()
+      end,
+      desc = "Undo History",
+    },
+    -- reopen the last picker right where you left it
+    {
+      "<leader>f.",
+      function()
+        Snacks.picker.resume()
+      end,
+      desc = "Resume Last Picker",
+    },
+    -- notification history
+    {
+      "<leader>fn",
+      function()
+        Snacks.picker.notifications()
+      end,
+      desc = "Notification History",
+    },
+
+    -- ============================================================
+    -- Git (<leader>g)
+    -- ============================================================
+
     {
       "<leader>gl",
       function()
@@ -72,13 +204,6 @@ return {
         Snacks.picker.git_log_line()
       end,
       desc = "Git Log Line",
-    },
-    {
-      "<leader>gs",
-      function()
-        Snacks.picker.git_status()
-      end,
-      desc = "Git Status",
     },
     {
       "<leader>gS",
@@ -101,30 +226,18 @@ return {
       end,
       desc = "Git Log File",
     },
-    -- Grep
+
+    -- ============================================================
+    -- Search (<leader>s) — discovery / introspection
+    -- ============================================================
+
     {
-      "<leader>sb",
+      "<leader>:",
       function()
-        Snacks.picker.lines()
+        Snacks.picker.command_history()
       end,
-      desc = "Buffer Lines",
+      desc = "Command History",
     },
-    {
-      "<leader>sB",
-      function()
-        Snacks.picker.grep_buffers()
-      end,
-      desc = "Grep Open Buffers",
-    },
-    {
-      "<leader>sw",
-      function()
-        Snacks.picker.grep_word()
-      end,
-      desc = "Visual selection or word",
-      mode = { "n", "x" },
-    },
-    -- search
     {
       "<leader>sr",
       function()
@@ -147,13 +260,6 @@ return {
       desc = "Autocmds",
     },
     {
-      "<leader>sb",
-      function()
-        Snacks.picker.lines()
-      end,
-      desc = "Buffer Lines",
-    },
-    {
       "<leader>sc",
       function()
         Snacks.picker.command_history()
@@ -166,27 +272,6 @@ return {
         Snacks.picker.commands()
       end,
       desc = "Commands",
-    },
-    {
-      "<leader>sd",
-      function()
-        Snacks.picker.diagnostics()
-      end,
-      desc = "Diagnostics",
-    },
-    {
-      "<leader>sD",
-      function()
-        Snacks.picker.diagnostics_buffer()
-      end,
-      desc = "Buffer Diagnostics",
-    },
-    {
-      "<leader>sh",
-      function()
-        Snacks.picker.help()
-      end,
-      desc = "Help Pages",
     },
     {
       "<leader>sH",
@@ -203,32 +288,11 @@ return {
       desc = "Icons",
     },
     {
-      "<leader>sj",
-      function()
-        Snacks.picker.jumps()
-      end,
-      desc = "Jumps",
-    },
-    {
-      "<leader>sk",
-      function()
-        Snacks.picker.keymaps()
-      end,
-      desc = "Keymaps",
-    },
-    {
       "<leader>sl",
       function()
         Snacks.picker.loclist()
       end,
       desc = "Location List",
-    },
-    {
-      "<leader>sm",
-      function()
-        Snacks.picker.marks()
-      end,
-      desc = "Marks",
     },
     {
       "<leader>sM",
@@ -245,34 +309,17 @@ return {
       desc = "Search for Plugin Spec",
     },
     {
-      "<leader>sq",
-      function()
-        Snacks.picker.qflist()
-      end,
-      desc = "Quickfix List",
-    },
-    {
-      "<leader>sR",
-      function()
-        Snacks.picker.resume()
-      end,
-      desc = "Resume",
-    },
-    {
-      "<leader>su",
-      function()
-        Snacks.picker.undo()
-      end,
-      desc = "Undo History",
-    },
-    {
       "<leader>uC",
       function()
         Snacks.picker.colorschemes()
       end,
       desc = "Colorschemes",
     },
-    -- LSP
+
+    -- ============================================================
+    -- LSP (g…)
+    -- ============================================================
+
     {
       "gd",
       function()
@@ -308,20 +355,6 @@ return {
         Snacks.picker.lsp_type_definitions()
       end,
       desc = "Goto T[y]pe Definition",
-    },
-    {
-      "<leader>ss",
-      function()
-        Snacks.picker.lsp_symbols()
-      end,
-      desc = "LSP Symbols",
-    },
-    {
-      "<leader>sS",
-      function()
-        Snacks.picker.lsp_workspace_symbols()
-      end,
-      desc = "LSP Workspace Symbols",
     },
   },
 }
