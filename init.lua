@@ -11,4 +11,5 @@ vim.lsp.enable({
   "cssls",
   "vtsls",
   "vue_ls",
+  "rust",
 })
