@@ -26,5 +26,22 @@ return {
       end,
       desc = "Lazygit",
     },
+    {
+      "<C-/>",
+      function()
+        Snacks.terminal.toggle()
+      end,
+      mode = { "n", "t" },
+      desc = "Toggle terminal",
+    },
+    -- Many terminals send <C-_> for Ctrl-/; map it to the same toggle.
+    {
+      "<C-_>",
+      function()
+        Snacks.terminal.toggle()
+      end,
+      mode = { "n", "t" },
+      desc = "which_key_ignore",
+    },
   },
 }
