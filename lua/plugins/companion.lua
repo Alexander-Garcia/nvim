@@ -11,7 +11,7 @@ return {
   opts = {
     strategies = {
       chat = {
-        adapter = "anthropic",
+        adapter = "claude_code",
         tools = {
           opts = {
             wait_timeout = 60000,
@@ -67,6 +67,35 @@ return {
       end,
       desc = "Inline code edits",
       mode = { "v" },
+    },
+    -- explain the visual selection in a new chat
+    {
+      "<leader>ce",
+      function()
+        vim.cmd("'<,'>CodeCompanionChat Explain this code clearly.")
+      end,
+      desc = "Explain selection",
+      mode = { "v" },
+    },
+    -- ask about diagnostics on current line
+    {
+      "<leader>cd",
+      function()
+        local diags = vim.diagnostic.get(0, { lnum = vim.fn.line(".") - 1 })
+        if #diags == 0 then
+          vim.notify("No diagnostics on current line", vim.log.levels.INFO)
+          return
+        end
+        local msg = table.concat(
+          vim.tbl_map(function(d)
+            return d.message
+          end, diags),
+          "\n"
+        )
+        vim.cmd("CodeCompanionChat Explain this error and how to fix it:\n" .. msg)
+      end,
+      desc = "Explain diagnostics",
+      mode = { "n" },
     },
   },
 }
