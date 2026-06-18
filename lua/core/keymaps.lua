@@ -5,6 +5,7 @@ local maps = {
     ["<C-c>"] = "<Esc>",
   },
   n = {
+    ["<Esc>"] = "<cmd>nohlsearch<CR>",
     [":"] = ";",
     [";"] = ":",
     -- Uppercase Y will grab entire line
