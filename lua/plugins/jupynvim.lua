@@ -1,12 +1,11 @@
 -- Jupyter notebooks (.ipynb) in Neovim with a Rust kernel backend.
--- Pinned: reviewed at v0.4.5; bump the tag deliberately after re-reviewing.
+-- Runs from local clone fork (Alexander-Garcia/jupynvim), edits
+-- there show up on the next nvim start. Backend is built from source
+-- after pulling Rust changes, run :Lazy build jupynvim (or cargo build).
 return {
-  "sheng-tse/jupynvim",
-  tag = "v0.4.5",
-  build = function(plugin)
-    local install = loadfile(plugin.dir .. "/lua/jupynvim/install.lua")()
-    install.run(plugin)
-  end,
+  "Alexander-Garcia/jupynvim",
+  dir = "~/dev/jupynvim",
+  build = "cargo build --release --manifest-path core/Cargo.toml",
   config = function()
     require("jupynvim").setup({
       log_level = "info",
@@ -32,6 +31,8 @@ return {
         interrupt_kernel = "<leader>ji",
         restart_kernel = "<leader>jx",
         expand_output = "<leader>jo",
+        toggle_collapse = "<leader>jh",
+        collapse_all = "<leader>jH",
         clear_output = "<leader>jc",
         clear_all = "<leader>jC",
         save_image = "<leader>jI",
