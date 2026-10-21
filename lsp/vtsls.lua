@@ -1,6 +1,6 @@
 -- vtsls.lua
 -- vtsls is ONLY used for Vue files (hybrid mode with vue_ls).
--- For JS/TS/React, tsgo handles everything.
+-- For JS/TS/React, tsc (TypeScript 7 native LSP) handles everything.
 --
 -- MASON INSTALL NEEDED:
 --   :MasonInstall vtsls

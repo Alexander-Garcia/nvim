@@ -2,7 +2,7 @@ require("core")
 require("lazy-init")
 
 vim.lsp.enable({
-  "tsgo",
+  "tsc",
   "svelte",
   "yamlls",
   "lua_ls",

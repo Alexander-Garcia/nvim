@@ -26,7 +26,7 @@ return {
         "html",
         "cssls",
         "terraformls",
-        "tsgo",
+        "tsc",
       },
     })
 
