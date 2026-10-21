@@ -1,5 +1,5 @@
 -- Jupyter notebooks (.ipynb) in Neovim with a Rust kernel backend.
--- Runs from local clone fork (Alexander-Garcia/jupynvim), edits
+-- Runs from local clone fork, edits
 -- there show up on the next nvim start. Backend is built from source
 -- after pulling Rust changes, run :Lazy build jupynvim (or cargo build).
 return {
@@ -33,6 +33,7 @@ return {
         expand_output = "<leader>jo",
         toggle_collapse = "<leader>jh",
         collapse_all = "<leader>jH",
+        limit_output = "<leader>jl",
         clear_output = "<leader>jc",
         clear_all = "<leader>jC",
         save_image = "<leader>jI",
