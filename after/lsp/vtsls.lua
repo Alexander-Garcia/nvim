@@ -1,4 +1,5 @@
 -- vtsls.lua
+-- Overrides merged on top of nvim-lspconfig's lsp/vtsls.lua (cmd, root_dir).
 -- vtsls is ONLY used for Vue files (hybrid mode with vue_ls).
 -- For JS/TS/React, tsc (TypeScript 7 native LSP) handles everything.
 --
@@ -8,10 +9,9 @@
 local vue_language_server_path = vim.fn.stdpath("data")
   .. "/mason/packages/vue-language-server/node_modules/@vue/language-server"
 
+---@type vim.lsp.Config
 return {
-  cmd = { "vtsls", "--stdio" },
   filetypes = { "vue" },
-  root_markers = { "package.json", "tsconfig.json", ".git" },
   settings = {
     vtsls = {
       tsserver = {

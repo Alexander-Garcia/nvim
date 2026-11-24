@@ -1,7 +1,11 @@
 return {
   "williamboman/mason.nvim",
   dependencies = {
-    "williamboman/mason-lspconfig.nvim",
+    -- nvim-lspconfig must be on the runtimepath before mason-lspconfig runs: its
+    -- automatic_enable calls vim.lsp.enable() at startup, which resolves and caches
+    -- each config immediately. Without lspconfig's lsp/*.lua defaults (cmd, filetypes,
+    -- root_dir), servers like tsc get cached with only our overrides and never attach.
+    { "williamboman/mason-lspconfig.nvim", dependencies = { "neovim/nvim-lspconfig" } },
     "WhoIsSethDaniel/mason-tool-installer.nvim",
   },
   config = function()

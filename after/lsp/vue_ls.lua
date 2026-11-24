@@ -3,7 +3,7 @@
 --
 -- vue_ls handles Vue templates, component diagnostics, and CSS/HTML sections.
 -- It requires vtsls to be attached to the same buffer to forward TypeScript
--- requests via the hybrid mode bridge (configured in lsp/vtsls.lua).
+-- requests via the hybrid mode bridge (configured in after/lsp/vtsls.lua).
 --
 -- MASON INSTALL NEEDED:
 --   :MasonInstall vue-language-server
@@ -25,8 +25,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
   end,
 })
 
-return {
-  cmd = { "vue-language-server", "--stdio" },
-  filetypes = { "vue" },
-  root_markers = { "package.json" },
-}
+-- cmd, filetypes, root_markers and the tsserver request bridge come from
+-- nvim-lspconfig's lsp/vue_ls.lua; nothing to override.
+---@type vim.lsp.Config
+return {}

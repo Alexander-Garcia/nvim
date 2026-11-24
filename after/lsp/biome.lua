@@ -1,5 +1,7 @@
+-- Overrides merged on top of nvim-lspconfig's lsp/biome.lua.
+-- Narrower than upstream: no astro, html or svelte.
+---@type vim.lsp.Config
 return {
-  cmd = { "biome", "lsp-proxy" },
   filetypes = {
     "css",
     "graphql",
@@ -11,6 +13,4 @@ return {
     "typescriptreact",
     "vue",
   },
-  root_markers = { "biome.json", "biome.jsonc" },
-  workspace_required = true,
 }

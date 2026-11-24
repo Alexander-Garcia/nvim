@@ -29,7 +29,7 @@ return {
         opts.desc = "Show documentation for what is under cursor"
         keymap.set("n", "K", vim.lsp.buf.hover, opts)
         opts.desc = "Restart LSP"
-        keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
+        keymap.set("n", "<leader>rs", "<cmd>lsp restart<CR>", opts)
       end,
     })
 
@@ -40,6 +40,20 @@ return {
       vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
     end
 
-    -- Per-server LSP configs are now in 'lua/lsp/'. See Neovim 0.11+ LSP setup.
+    -- Per-server LSP configs live in 'after/lsp/' so they merge on top of nvim-lspconfig's
+    -- defaults, so enable them here: vim.lsp.enable() resolves and caches each config
+    -- immediately, and lspconfig must already be on the runtimepath when that happens.
+    vim.lsp.enable({
+      "tsc",
+      "svelte",
+      "yamlls",
+      "lua_ls",
+      "pyright",
+      "dockerls",
+      "cssls",
+      "vtsls",
+      "vue_ls",
+      "rust_analyzer",
+    })
   end,
 }
